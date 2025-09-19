@@ -713,6 +713,7 @@ static void mxt_process_messages_t44_t144(struct mxt_data *data)
 }
 #endif
 
+#ifdef CONFIG_UPGRADE
 static int mxt_process_messages_until_invalid(struct mxt_data *data)
 {
 	int count, read;
@@ -730,6 +731,7 @@ static int mxt_process_messages_until_invalid(struct mxt_data *data)
 	dev_err("CHG pin isn't cleared\n");
 	return -EBUSY;
 }
+#endif
 
 #ifdef T44_NONE
 static void mxt_process_messages(struct mxt_data *data)
@@ -1937,3 +1939,4 @@ int mxt_initialize()
 
 	return 0;
 }
+
